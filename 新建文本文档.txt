@@ -1,0 +1,17 @@
+The complete list is the following:
+1.       Overview of xAI: Requirements, stakeholders, concepts, taxonomies, Human-friendly Explanations
+2.       Global explanation  methods 
+3.       Model-Agnostic Methods
+4.       Case-based explanation
+5.       Argument-based explanation
+6.       Counterfactual-based explanation
+7.       PROTOTYPES AND CRITICISMS
+8.       Tools and case-studies in different domains (medicine, law, finance, security)
+9.       Deep learning explanation (Multi-Layer Neural Networks)
+10.   Convolutional Neural Networks and Recurrent Neural Networks explanation 
+11.   Explanations for AI Security: XAI and Adversarial Machine Learning
+12.   Explanations  for Ensembles and Multiple Classifier Systems
+13.   Interpretable models (Linear/ Logistic Regression Decision Tree...etc)
+14.   Evaluation of xAI
+15.   Explanation by Feature relevance 
+16.   Explanations  for Support Vector Machine

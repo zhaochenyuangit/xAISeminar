@@ -1,0 +1,24 @@
+\begin{thebibliography}{1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{bertossi2020asp}
+Bertossi, L.: An asp-based approach to counterfactual explanations for
+  classification. arXiv preprint arXiv:2004.13237  (2020)
+
+\bibitem{DiCE}
+Mothilal, R.K., Sharma, A., Tan, C.: Explaining machine learning classifiers
+  through diverse counterfactual explanations. In: Proceedings of the 2020
+  Conference on Fairness, Accountability, and Transparency. pp. 607--617 (2020)
+
+\bibitem{prototype}
+Van~Looveren, A., Klaise, J.: Interpretable counterfactual explanations guided
+  by prototypes. arXiv preprint arXiv:1907.02584  (2019)
+
+\bibitem{watcher2017}
+Wachter, S., Mittelstadt, B., Russell, C.: Counterfactual explanations without
+  opening the black box: Automated decisions and the gdpr. Harv. JL \& Tech.
+  \textbf{31}, ~841 (2017)
+
+\end{thebibliography}
