@@ -1,0 +1,45 @@
+\subsection{generation by replacing}
+The loss function method in section \ref{sec:lossFunc} is mainly used for tabular data (\cite{DiCE,watcher2017,prototype}) or small image data (\cite{prototype}). For image data, even as small as MNIST, equation \ref{eq:watcher} turns out to be too expensive. Beside the prototype term, another way to generate an interpretable result for image data is to replace the identified region of an image with the identified region of one of its CF instances. \cite{visualCounterfactual} purposed the following formula:
+\begin{equation}\label{eq:visualCF}
+  h(I^\star)=(\mathbf{1}-\mathbf{a})\circ h(I)+\mathbf{a}\circ P\cdot h(I')
+\end{equation}
+where \emph{I} is the input image, and \emph{I'} is a chosen image with a different label. $h$ is a spatial feature extractor, so $h(I)\in\mathbb{R}^{hw\times d}$ is the mapped feature, where $h,w$ are the height and width of the image, and $d$ is the image dimension. $\circ$ is defined as the element-wise multiplication of the broadcasted vector (to match the size of a matrix) and the matrix. $\mathbf{a}\in\mathbb{R}^{hw}$ is a binary vector, with value of 1 indicates a substitution and 0 indicates not to substitute. \textbf{1} is a vector of all-ones, so \textbf{1-a} is the counterpart of \textbf{a}. $P\in\mathbb{R}^{hw\times hw}$ is a permutation matrix to rearrange elements of $h(I')$, so that the features of $h(I')$ align with $h(I)$.
+%TODO: 什么是permutation matrix?
+\paragraph{permutation matrix definition} A permutation matrix $P$ is a square binary matrix that has exactly one entry of 1 in each row and each column and 0s elsewhere. Multiplying $P$ with another matrix $A$ on the left shuffles the rows of $A$. A handy example is shown as follow:
+$$
+P=\begin{pmatrix}
+    0 & 0 & 0 & 1 \\
+    1 & 0 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 1 & 0 & 0
+  \end{pmatrix},\
+P\cdot\begin{pmatrix}
+        1 \\
+        2 \\
+        3 \\
+        4
+      \end{pmatrix}=\begin{pmatrix}
+                      4 \\
+                      1 \\
+                      3 \\
+                      2
+                    \end{pmatrix}
+$$
+
+By this replacing function, it is essential to minimize the replaced region to avoid the trivial solution of replacing the image with its CF  entirely. Since \textbf{a} is a binary vector, $||\textbf{a}||_1$ corresponds to the number of replaced pixels. The optimizing problem is equivalent to find a merged image classified as opposite label $i_c$ with minimum $||\textbf{a}||_1$:
+\begin{equation}\label{eq:visualOpt}
+\begin{split}
+  \min_{P,\mathbf{a}} ||\mathbf{a}||_1
+  \\s.t.\ &i_c=\arg\max f(h(I^\star))
+  \\&a_i\in\{0,1\}\forall i,\ P\in \mathcal{P}
+  \end{split}
+\end{equation}
+$f$ is a decision network to give out the final classification result of $I$, $f$ is assumed to be a multiple class classifier.
+
+This task is still tremendously huge, because \textbf{a} is in $\mathbb{R}^{2^k}$ space and the permutation matrix is in $\mathbb{R}^{hw\times hw}$ space. It is equivalent to find a optimal subset of $hw*hw$ possible solutions. \cite{visualCounterfactual} used an exhaustive search approach to solve the problem. They break down the optimization to sequential steps. In each step, only one single spatial feature cell in $h(I')$ is chosen, and all permutation matrix will be probed to find the best location of this cell. The substitution is saved at the end of each step, steps are repeated until the modification is large enough to alter the prediction. The result is shown in figure \ref{fig:visualCF}.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{visualCFexample.PNG}
+  \caption{In the first row, the permutation matrix mismatches two features and generates an incomprehensible result. In the second row, the features are aligned. 
+  }\label{fig:visualCF}
+\end{figure}

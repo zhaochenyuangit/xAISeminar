@@ -1,37 +1,69 @@
 \relax 
 \citation{watcher2017}
-\citation{watcher2017}
 \@writefile{toc}{\contentsline {title}{Counterfactual explanation}{1}{}\protected@file@percent }
 \@writefile{toc}{\authcount {1}}
 \@writefile{toc}{\contentsline {author}{Chenyuan Zhao \gdef Technische Universität München{Technische Universität München}}{1}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{}\protected@file@percent }
 \citation{watcher2017}
-\citation{DiCE}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Generation of a counterfactual explanation}{2}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}by loss function}{2}{}\protected@file@percent }
+\citation{watcher2017}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Several ways to generate a counterfactual explanation}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}generation by loss function}{2}{}\protected@file@percent }
+\newlabel{sec:lossFunc}{{2.1}{2}}
 \newlabel{eq:watcher}{{1}{2}}
 \newlabel{eq:distMAD}{{2}{2}}
 \newlabel{eq:MAD}{{3}{2}}
-\newlabel{eq:distCate}{{4}{2}}
-\newlabel{distCombined}{{5}{2}}
-\citation{prototype}
 \citation{DiCE}
+\citation{prototype}
+\newlabel{eq:distCate}{{4}{3}}
+\newlabel{eq:distCombined}{{5}{3}}
 \newlabel{eq:hingeloss}{{6}{3}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces the hinge loss penalize wrong classification heavily, correct one near the boundary slightly and has no effect above a certain threshold}}{3}{}\protected@file@percent }
 \newlabel{fig:hingeloss}{{1}{3}}
-\newlabel{eq:lossPred}{{7}{3}}
-\@writefile{toc}{\contentsline {subsubsection}{add a diversity term}{3}{}\protected@file@percent }
+\citation{DiCE}
+\citation{kulesza2011dpp}
+\newlabel{eq:lossPred}{{7}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{add a diversity term}{4}{}\protected@file@percent }
+\newlabel{eq:dpp}{{8}{4}}
+\@writefile{toc}{\contentsline {paragraph}{dpp marginal kernel}{4}{}\protected@file@percent }
+\newlabel{er:dpp}{{9}{4}}
+\newlabel{eq:dpp1}{{10}{4}}
 \citation{bertossi2020asp}
 \citation{prototype}
+\newlabel{eq:dpp2}{{11}{5}}
+\newlabel{eq:DiCe}{{12}{5}}
+\@writefile{toc}{\contentsline {subsubsection}{add an interpretability term}{5}{}\protected@file@percent }
+\newlabel{eq:prototype}{{13}{5}}
+\newlabel{eq:closestProto}{{14}{5}}
+\newlabel{eq:protoloss}{{15}{5}}
+\citation{prototype}
+\citation{DiCE,watcher2017,prototype}
+\citation{prototype}
+\citation{visualCounterfactual}
+\newlabel{eq:gradientNumerical}{{16}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces (a) column is the input data and (b) column is the CF output. In the first row, input class is 5 and CF class is 3. Second row, input class is 5 and CF class is 6. The addition of the prototype loss term generates a more interpretable CF. }}{6}{}\protected@file@percent }
+\newlabel{fig:protoresult}{{2}{6}}
+\citation{visualCounterfactual}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}generation by replacing}{7}{}\protected@file@percent }
+\newlabel{eq:visualCF}{{17}{7}}
+\@writefile{toc}{\contentsline {paragraph}{permutation matrix definition}{7}{}\protected@file@percent }
+\newlabel{eq:visualOpt}{{18}{7}}
+\citation{certifai}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces In the first row, the permutation matrix mismatches two features and generates an incomprehensible result. In the second row, the features are aligned. }}{8}{}\protected@file@percent }
+\newlabel{fig:visualCF}{{3}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}generation by differential evolution}{8}{}\protected@file@percent }
+\citation{onePixel}
 \bibstyle{splncs04}
 \bibdata{Reference}
 \bibcite{bertossi2020asp}{1}
-\bibcite{DiCE}{2}
-\newlabel{eq:dpp}{{8}{4}}
-\@writefile{toc}{\contentsline {subsubsection}{interpretability term}{4}{}\protected@file@percent }
-\newlabel{eq:prototype}{{9}{4}}
-\newlabel{eq:closestProto}{{10}{4}}
-\newlabel{eq:protoloss}{{11}{4}}
-\bibcite{prototype}{3}
-\bibcite{watcher2017}{4}
-\gdef \@abspage@last{5}
+\bibcite{visualCounterfactual}{2}
+\bibcite{kulesza2011dpp}{3}
+\newlabel{eq:onepixel}{{19}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces one-pixel different CFs on CIFAR-10 dataset, a dataset that consists of $32\times 32$ large images in 10 classes. The first row beneath each image is the original class, and the second row is the CF class. All three networks give out high confidence for the CF examples.}}{9}{}\protected@file@percent }
+\newlabel{fig:onepixel}{{4}{9}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}shadow of adversarial example}{9}{}\protected@file@percent }
+\bibcite{DiCE}{4}
+\bibcite{certifai}{5}
+\bibcite{onePixel}{6}
+\bibcite{prototype}{7}
+\bibcite{watcher2017}{8}
+\gdef \@abspage@last{10}

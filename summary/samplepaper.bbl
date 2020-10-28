@@ -7,10 +7,28 @@
 Bertossi, L.: An asp-based approach to counterfactual explanations for
   classification. arXiv preprint arXiv:2004.13237  (2020)
 
+\bibitem{visualCounterfactual}
+Goyal, Y., Wu, Z., Ernst, J., Batra, D., Parikh, D., Lee, S.: Counterfactual
+  visual explanations. CoRR pp. 2376--2384 (2019)
+
+\bibitem{kulesza2011dpp}
+Kulesza, A., Taskar, B.: k-dpps: Fixed-size determinantal point processes. In:
+  ICML (2011)
+
 \bibitem{DiCE}
 Mothilal, R.K., Sharma, A., Tan, C.: Explaining machine learning classifiers
   through diverse counterfactual explanations. In: Proceedings of the 2020
   Conference on Fairness, Accountability, and Transparency. pp. 607--617 (2020)
+
+\bibitem{certifai}
+Sharma, S., Henderson, J., Ghosh, J.: Certifai: Counterfactual explanations for
+  robustness, transparency, interpretability, and fairness of artificial
+  intelligence models. arXiv preprint arXiv:1905.07857  (2019)
+
+\bibitem{onePixel}
+Su, J., Vargas, D.V., Sakurai, K.: One pixel attack for fooling deep neural
+  networks. IEEE Transactions on Evolutionary Computation  \textbf{23}(5),
+  828--841 (2019)
 
 \bibitem{prototype}
 Van~Looveren, A., Klaise, J.: Interpretable counterfactual explanations guided
