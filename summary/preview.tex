@@ -1,0 +1,20 @@
+\section{Several ways to generate a counterfactual explanation}\label{sec:generation}
+\subsection{generation by gradient descent}
+In this section it makes sense to start with \cite{watcher2017}, because it is considered the origin of CF. I will introduce the technical details of the yloss term and the distance term in a summarized way, mentioning the other possible choice of these two terms in \cite{DiCE},\cite{russellDiverse} and \cite{prototype}.
+
+Then I will mention other works that focus on other criteria. For \cite{DiCE} I want to especially explain how DPP works, which is omitted in the article, but is crucial to understand why there is a minus symbol before the $dpp\_diverse$ term. I have also found a blog \cite{CFblog}, DPP is neither explained there. Then I have watched a online course about that and found an intuitive explanation of DPP. For \cite{prototype} I will mainly emphasis its good interpretability among all methods.
+\subsection{generation by region substitution}
+The last section mainly deals with tabular data, and this section generate CF for images. And the reference is \cite{visualCounterfactual}.
+\subsection{generation by differential evolution}
+Differential evolution (DE) is another way to generate CF, and it can receive tabular as well as image data, which makes the summary complete. Here I refer to \cite{certifai} for tabular data and \cite{onePixel} for images.
+
+I will talk about \cite{certifai} and \cite{onePixel} because they both use DE in an almost identical way. Though the latter is under the research of adversarial examples (AE). However, after I read \cite{certifai} I found out that the authors mixed the concept of counterfactual examples (CE) and AE, as they wrote in section 3.3 "A counterfactual is a generated point close to an input [\dots] and is therefore an adversarial example". So I put them together. Besides, these two articles rises the question about the line between CE and AE, which is a smooth transition for next section.
+\section{Shadow of adversarial example}\label{sec:adversarial}
+In this section I will talk about CE and AE. My main reference is \cite{freiesleben2020counterfactual}. I will clarify the difference "feasible CE" and "contesting CE", and map them to the methods mentioned in section \ref{sec:generation}.
+\section{Casualty vs. Correlation}\label{sec:Causualty}
+Almost all the literature I read mentioned that they will include casualty in the model for a more interpretable result. This section is essential, as it describes the limitation of CF. 
+However, I currently do not have a proper candidate article to refer in this section. Probably I will read several articles mentioned in \cite{freiesleben2020counterfactual}. Moreover, casualty between features will be highlighted (e.g. an improve in educational background should be accompanied with an increase in age). But again, I have not found any literature about this.
+
+In the other way, introducing CF datasets could significantly improve the robustness of a model, enhancing its ability to distinguish non-spurious association, for example \cite{kaushik2019learning}. I put this paragraph here because it is the opposite of last paragraph. Including casualty model could improve the CF explanations, but if we have CF explanations by hand we can improve the model.
+\section{Conclusion}\label{sec:Conclude} 
+My summary gives a big picture of how to generate a CF for both tabular data and image data. And the methods are further divided under the category "feasible" or "contesting". Common misconception of the relation between CE and AE is discussed. And a promising direction of CF, the use of casual models, is also mentioned for deeper understanding of CF.   
