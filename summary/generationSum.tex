@@ -1,0 +1,10 @@
+\subsection{Summary of Nearest Counterfactual Method}
+%移动到第一章结尾
+Here we summarize the metrics that nearest CF explanation is able to fulfill.
+ \begin{itemize}
+ \item Validity: CF is classified in the desired class.
+ \item Proximity: CF is similar to the input data point.
+   \item  Sparsity: CF should prescribe a small change in a small number of features because shorter explanations are more comprehensible to humans \cite{CFReview}. %This is done by \emph{L1} norm in gradient-based method and {L0} in genetic method.
+   \item  Diversity: multiple CFs for one input. CFs should have maximum distance between each other, while each of them keep proximate to the input.
+   \item  Training Data Distribution: CF should be representative for its class, leaving human an impression that it is correctly classified.
+ \end{itemize} 

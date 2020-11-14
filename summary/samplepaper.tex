@@ -7,6 +7,7 @@
 \usepackage{graphicx}
 \usepackage{amsfonts}
 \usepackage{amsmath}
+\usepackage[numbers]{natbib}
 % Used for displaying a sample figure. If possible, figure files should
 % be included in EPS format.
 %
@@ -40,15 +41,19 @@
 \begin{abstract}
 Counterfactual explanations have been a popular branch in explainable AI. This article summarizes its solution methods, use cases and limitations. Feasible explanation and contesting explanation are two application scenarios under the name of counterfactual explanation, the literature of one scenario could be of no interest to the reader of the other scenario. Current models that base on connectivism do not distinguish between correlation and casualty, which could be a drawback of counterfactual explanation.
 
-\keywords{counterfactual explanation  \and adversarial example.}
+\keywords{counterfactual explanation  \and adversarial example \and explainable AI. }
 \end{abstract}
 %\input{instruction}
 \input{intro}
-\input{preview}
-%\input{generation}
+%\input{preview}
+\input{generation}
+\input{generationSub}
 %\input{generationReplacing}
-%\input{generationDE}
-%\input{adversarial}
+\input{generationDE}
+\input{generationSum}
+\input{adversarial}
+\input{causality}
+\input{conclude}
 % ---- Bibliography ----
 %
 % BibTeX users should specify bibliography style 'splncs04'.
@@ -57,6 +62,7 @@ Counterfactual explanations have been a popular branch in explainable AI. This a
 % \bibliographystyle{splncs04}
 % \bibliography{mybibliography}
 %
-\bibliographystyle{splncs04}
+\bibliographystyle{plainnat}
+%\bibliographystyle{splncs04}
 \bibliography{Reference}{}
 \end{document}
