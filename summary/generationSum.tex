@@ -1,10 +1,16 @@
-\subsection{Summary of Nearest Counterfactual Method}
+\subsection{Summary of Nearest Counterfactual Explanation}
 %移动到第一章结尾
-Here we summarize the metrics that nearest CF explanation is able to fulfill.
+Here we summarize the metrics fulfilled by nearest CF explanation methods:
  \begin{itemize}
  \item Validity: CF is classified in the desired class.
  \item Proximity: CF is similar to the input data point.
-   \item  Sparsity: CF should prescribe a small change in a small number of features because shorter explanations are more comprehensible to humans \cite{CFReview}. %This is done by \emph{L1} norm in gradient-based method and {L0} in genetic method.
-   \item  Diversity: multiple CFs for one input. CFs should have maximum distance between each other, while each of them keep proximate to the input.
-   \item  Training Data Distribution: CF should be representative for its class, leaving human an impression that it is correctly classified.
- \end{itemize} 
+   \item  Sparsity: CF should prescribe a small change in a small number of features. It's observed that shorter explanations are more comprehensible to humans \cite{CFReview}. %This is done by \emph{L1} norm in gradient-based method and {L0} in genetic method.
+   \item  Diversity: multiple CFs for one input. CFs should have maximum distance between each other, while each of them keep proximate to the input \cite{russellDiverse,DiCE,certifai}.
+   \item  Plausibility: CF should be representative for its class, leaving human an impression that it is correctly classified \cite{prototype,FACE}.
+ \end{itemize}
+ Other metrics that nearest CF explanation is able to fulfill, but are not detailed in this article:
+ \begin{itemize}
+   \item Data Range: CF should consider domain knowledge. For example in computer vision, the value of a pixel never exceeds $[0,255]$. A person's age cannot be changed over 300 \cite{certifai}.
+   \item Immutable Features: CF should not change social sensitive features like race or gender \cite{certifai}.
+   \item Monotonicity: CF should have a better prediction result if it requires more efforts to be invested. For example, a shorter late payment history of credit cards always corresponds to a higher credit score \cite{russellDiverse}.
+ \end{itemize}
