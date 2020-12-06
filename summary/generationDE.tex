@@ -1,6 +1,6 @@
 \subsection{Differential Evolution Method}
 %The method in chapter \ref{sec:lossFunc} requires the objective function must be differentiable to evaluate the effect of perturbation on the final prediction.
-Beside gradient descent, differential evolution (DE) or genetic method is another algorithm for solving optimization problems. DE is a population based optimization algorithm, its work principle could be briefly summarized as ``natural selection'' or ``survival of the fittest''. As the name implies, DE generates a new candidate set (children) from current set (parent), and only keep the candidates with the highest criteria (e.g. fitness value, diversity\dots) for the next iteration.
+Besides gradient descent, differential evolution (DE) or genetic method is another algorithm for solving optimization problems. DE is a population-based optimization algorithm, its work principle could be briefly summarized as ``natural selection'' or ``survival of the fittest''. As the name implies, DE generates a new candidate set (children) from the current set (parent), and only keeps the candidates with the highest criteria (e.g. fitness value, diversity\dots) for the next iteration.
 
 The prominent advantage of DE lies in three aspects: it is independent of whether the model is differentiable, and does not require internal gradients, this is the very case with a ``black-box'' model. Secondly, it is applicable for any sort of input data (continuous/categorical tabular data or image data). And finally, DE suffers less from local minima than gradient descent, partially due to the diversity in the candidate set.
 
@@ -25,7 +25,8 @@ The formula maximize the prediction possibility of the target CF class $i_c$, wh
   \centering
   \includegraphics[width=0.5\textwidth]{onepixel.PNG}
   \caption{one-pixel different CFs on CIFAR-10 dataset, a dataset that consists of $32\times32$ large images in 10 classes.
-  The first row beneath each image is the original class, and the second row is the CF class. All three networks give out high confidence for the CF examples.}
+  The first row beneath each image is the original class, and the second row is the CF class. All three networks give out high confidence for the CF examples. Credit: \cite{onePixel}
+  }
   \label{fig:onepixel}
 \end{figure}
 

@@ -1,0 +1,42 @@
+[Reviewer: Anonymous]
+
+[Paper title: Techniques to enhance interpretability of Ensembles and Multiple classifier systems: a detailed review]
+
+
+
+Summary
+
+-------
+
+[*] Emsemble model systems is one of the most accurate machine decision models nowadays [1]. However, such ensemble techinique sacrafices the interpretability of the individual models. In order to explain ensemble models, the author has listed four ways, namely simplification explanation, feature relevance explanation, visual explanation and ensemble strategy explanation. The basic ideas of these methods map almost one to one to the common explanations for a single method. But due to the complexity of a ensemble model, the mathematical tools for realization such explanations are different. Among all these four methods, explanation by simplication is the most widespreaded one, and can be applied to all ensemble techniques.
+ 
+
+Merits
+
+------
+
+[*] The author have read the literature thouroughly and reveals many details about the concret algorithms in the article. By listing the detailed procedure of each explanation method, the related literature is summerized in a very compact way. The author focuses a lot on the algorithm, showing a precise writing style.
+
+Critique
+
+--------
+
+[*] This article turns out to be very demanding for a lay audience to read. Because the author choose a writing style to let the article reads more like a tool book instead of a popular science. Sometimes critical notations and concepts are not declared before the article dives into the technical details of the mathematical methods. 
+Besides, from section 3, the author made many latex format mistakes. It seems that the second half of the article was finished in a rush. Given more time buffer, the author could done a better work. 
+
+Suggestions
+
+-----------
+
+[*] Add transitions between subsections to make the whole structure clear.
+Introducing more background of a method before giving out the techinical details.
+Spare some space to explain the algorithms with plain words, beside summerizing them in a compact table, a style guide would be [2].
+Combine the tables comparing differnt methods into one to offer a more informative overview.
+Correct the latex mistakes.
+
+References
+
+----------
+ 
+[1] Arrieta, A.B, et al.: Explainable artificial intelligence (xai): Concepts, taxonomies, opportunities and challenges toward responsible ai. Information Fusion 58, 82{115 (2020)
+[2] Zhou, Z.H.: Ensemble learning. Encyclopedia of biometrics 1, 270{273 (2009)
