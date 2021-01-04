@@ -4,7 +4,7 @@ Besides gradient descent, differential evolution (DE) or genetic method is anoth
 
 The prominent advantage of DE lies in three aspects: it is independent of whether the model is differentiable, and does not require internal gradients, this is the very case with a ``black-box'' model. Secondly, it is applicable for any sort of input data (continuous/categorical tabular data or image data). And finally, DE suffers less from local minima than gradient descent, partially due to the diversity in the candidate set.
 
-The main steps of the genetic method is listed as follow \cite{certifai}:
+The main steps of the genetic method are listed as follow \cite{certifai}:
 \begin{enumerate}
   \item randomly generate points that belong to a CF class
   \item choose candidates with largest fitness value, where $fitness=\frac{1}{d(\textbf{x,c})}$
@@ -20,7 +20,7 @@ Similarly, another DE application of searching CF examples for image data is giv
      &subject\ to\ ||\mathbf{x-c}||_0=1
   \end{split}
 \end{equation}
-The formula maximize the prediction possibility of the target CF class $i_c$, while constraining the CF to be only one pixel different from the input. The 0-norm measures the number of non-zero elements, ensuring the sparsity.
+The formula maximizes the prediction possibility of the target CF class $i_c$, while constraining the CF to be only one pixel different from the input. The 0-norm measures the number of non-zero elements, ensuring the sparsity.
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{onepixel.PNG}

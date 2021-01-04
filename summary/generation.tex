@@ -9,7 +9,7 @@ In this section, two main approaches of the nearest CF are introduced. One of th
 \subsection{Gradient-based Method}\label{sec:lossFunc}
 CF explanation focuses on which kind of minimal perturbation in the data subject will leads to a different classification. Therefore, the search of a an appropriate CF example is boiled down to an optimizing problem with at least two requirements: (1.) classified as the counter class, and (2.) still similar to the original data with only necessary modifications. \citeauthor{watcher2017} \cite{watcher2017} has proposed the following formula, which becomes the basis of the following research:
 \begin{equation}\label{eq:watcher}
-  \textbf{c}=\arg\min_{\textbf{c}}trgtloss(f(\textbf{c}),y)+d(\textbf{x,c})
+  \textbf{c}=\arg\min_{\textbf{c}}target_loss(f(\textbf{c}),y)+d(\textbf{x,c})
 \end{equation}
 where \textbf{x} is the original data, y is the target data class, \textbf{c} is the generated counterfactual data, and f is the model so that f(\textbf{c}) is the new prediction of the model, i.e. the new class. The first part of the formula encourages a different class, while the second part penalizes large distances away from the original data. According to \citeauthor{watcher2017}'s notation, the first part is called ``validity'' and the second part is ``proximity'', both have significant impacts on final results \cite{watcher2017}.
 
@@ -21,7 +21,7 @@ where MAD is defined for every feature k over the whole points set P:
 \begin{equation}\label{eq:MAD}
   MAD_k=median_{i\in P}(|{X_{i,k}}-median_{j\in P}(X_{j,k})|)
 \end{equation}
-The \emph{$L_1$} norm in equation \ref{eq:distMAD} prone to generate zero entries, which ensures a sparse optimizing result. Normalising the norm is important as well, otherwise big range data would have heavy weights. Here MAD turns out to outperform standard deviation, because it cooperates with \emph{$L_1$} norm better, and generates a even more sparse result.
+The \emph{$L_1$} norm in equation \ref{eq:distMAD} prones to generate zero entries, which ensures a sparse optimizing result. Normalising the norm is important as well, otherwise big range data would have heavy weights. Here MAD turns out to outperform standard deviation, because it cooperates with \emph{$L_1$} norm better, and generates even more sparse result.
 
 Sometimes data may contain categorical features (e.g. occupation, gender\dots), it is counter-intuitive to define ``distance'' for these features. A simple matching distance is able to cope with the issue, where distance 1 is assigned to value changes and 0 if the value remains unchanged \cite{DiCE}.
 \begin{equation}\label{eq:distCate}
@@ -34,7 +34,7 @@ Combining equation \ref{eq:distMAD} and \ref{eq:distCate} weighted by the number
   \neq \textbf x^k)
 \end{equation}
 
-\subsubsection{Validity Term} Validity measures the ratio of the CFs that successfully obtained the desired class label \cite{CFReview}. Without loss of generality, in this article we choose 0 as the original class label, and 1 for the desired label for binary classification. The prediction of the model f(\textbf{c}) is a continuous value between 0 and 1. One of the choices of the target loss term is the \emph{$L_2$} norm $(f(\textbf{c})-y)^2$ \cite{watcher2017}. \citeauthor{DiCE} \cite{DiCE} argue that a valid counterfactual suffices if it bypasses the classification threshold of the model (typically 0.5), but the \emph{$L_2$} norm always prefer the extreme value 1. The underlying issue is that counterfactuals, unless predicted exactly as 1, still receives penalty even if it is classified correctly. A better choice is the hinge-loss:
+\subsubsection{Validity Term} Validity measures the ratio of the CFs that successfully obtained the desired class label \cite{CFReview}. For simplicity, the following context assumes the original class label to be 0, and the desired label to be 1 for binary classification. The prediction of the model f(\textbf{c}) is a continuous value between 0 and 1. One of the choices of the target loss term is the \emph{$L_2$} norm $(f(\textbf{c})-y)^2$ \cite{watcher2017}. \citeauthor{DiCE} \cite{DiCE} argue that a valid counterfactual suffices if it bypasses the classification threshold of the model (typically 0.5), but the \emph{$L_2$} norm always prefer the extreme value 1. The underlying issue is that counterfactuals, unless predicted exactly as 1, still receives penalty even if it is classified correctly. A better choice is the hinge-loss:
 \begin{equation}\label{eq:hingeloss}
   hinge\_trgtloss=\max(0,1-logit(f(\textbf{c})))
 \end{equation}

@@ -1,0 +1,23 @@
+
+[Peer Review for Counterfactual Explanation]
+
+Summary
+-------
+[*] This paper has 5 main parts:  Introduction, Nearest counterfactual explanations, Draw-backs of nearest counterfactual explanation, Causal counterfactual explanation and Con-clusion.  In Introduction section:  the author introduced the context of AI , XAI, inter-pretation of Counterfactual explanation(CF) with vivid examples, and the overall layoutof the whole paper.  In the 2nd part, two techniques of nearest CF was introduced withalgorithms and plots.  Thirdly, two drawbacks of nearest CF was discussed with examples.Next, in the 4th paragraph, two approaches of Causal CF was presented.  At last, thispaper ended with a short conclusion
+
+Merits
+------
+[*] In my opinion, this paper is well-structured, with simple and clear language and exampleswhich are very helpful for understanding
+
+Critique
+--------
+[*] There is a single section focused on drawbacks of nearest CF, which may make this paperlooked a little unbalanced.  Because there¡¯s no single section about drawbacks of causalCF, neither discussion or comparison between these two.I think the language is good as a draft, but maybe can improved to be more academicfor the final submission
+
+Suggestions
+-----------
+[*] I think the paper is high-quality as a draft submission.  There¡¯s only small suggestionsabout how to slightly polish it.
+
+Transition sentences£ºI think the transition sentences and where to put them can be considered more carefully.For  example,  in  the  2nd  section,  the  introduction  and  classification  of  nearest  CF  ap-proaches can be more completed (the early part of 2.1 section is also about general CFinstead of the specific method?)
+
+More discussion or critique£ºSince the context, methods and examples are introduced clearly, if there¡¯s more discussionor critique about them, the paper may become more comprehensive
+
