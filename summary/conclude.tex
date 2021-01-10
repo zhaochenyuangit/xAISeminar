@@ -1,2 +1,31 @@
 \section{Conclusion}\label{sec:Conclude}
-Counterfactual explanations are powerful tools to interpret a particular outcome from AI. The absence of internal details of the model and its resemblance to human logic benefit the lay audience in understanding a decision. What's more, the explanation potentially implies a solution to an undesired outcome. However, the mainstream of counterfactual explanation usually searches an example semantically with a distance function, which often violates the data distribution and results in an uninterpretable outcome similar to an adversarial example. To improve the interpretability and actionability of a counterfactual explanation, including causal models is a promising way. But related researches that based on a directed graph can be hardly deployed due to the lack of clear causality connection in real life.    
+At the end of this article, the CF methods aforementioned are summarized in short. The gradient-based nearest method, which based on the formula purposed by \citeauthor{watcher2017} \cite{watcher2017}, is the most researched method under the CF topic \cite{CFReview}. This method only works with a differentiable prediction model. It usually handles tabular data, and some of its variants can generate diverse \cite{DiCE,russellDiverse} or plausible \cite{prototype} CF examples, depending on the modification of \autoref{eq:watcher}. Gradient-based methods usually have access to model architecture to facilitate automatic differentiation during optimization. Otherwise, the prediction model will be the bottleneck of the algorithm and slow down the CF generation speed by 100 times \cite{prototype}. A short explanation for this performance issue states as follows. For black-box models, only the input data and the final prediction are available, and the internal gradients are lost. Therefore, to measure the effect of a single perturbation of a feature \emph{k} on the final prediction, the gradient has to be approximated numerically by:
+\begin{equation}\label{eq:gradientNumerical}
+  \frac{\partial f_{pred}}{\partial x_k}\approx\frac{f_{pred}(x+\epsilon_k)-f_{pred}(x-\epsilon_k)}{2\epsilon}
+\end{equation}
+and this needs to be done arduously on each feature in both directions for each gradient step, which results in numerous computations. For example, for a $28\times28$ MNIST image, the algorithm needs to call the prediction model for $28\cdot28\cdot2$ times \emph{every step}!
+
+The data-evolution nearest method works also with non-differentiable models. It can handle all types of input data (continuous, categorical tabular data, and image data). However, the result of this method is often implausible and similar to an adversarial example, which limits its application to contesting CFs. In the DE case, the time complexity is measured by the number of emerged candidates (every candidate needs to be evaluated), which equals the population size multiplied by the number of generations. For a $32\times32$ CIFAR-10 image, the average evaluation number until picking a final candidate is 16,000 to 20,000 \cite{onePixel}.
+
+The causal model method generates plausible but also actionable CFs. It requires the prediction model as well as a causal graph of the world, which is extra information given by the developers \cite{preservingCausal}. Since image data does not contain causal relations between features (pixels), this method is only applied for tabular data. In the black-box model case, this method also suffers from performance issue like the gradient-based method. However, the dimension of tabular data is much lower than image data, so the performance issue is not severe.
+
+\begin{table}
+  \centering
+\caption{summary table}
+\begin{tabular}{|r|c|c|c|}
+  \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+   & \multicolumn{2}{c|}{Nearest Method} & Causal Method\\
+   \cline{2-3}
+   & Gradient-based & DE &  \\
+   \hline
+  required information & differentiable model  & any model & model plus causal graph \\
+  input data & mostly tabular data & any data & tabular data \\
+  CF quality & plausible, diverse& implausible& plausible and actionable\\
+  time complexity & moderate (gradients available) &moderate& -\\
+  \hline
+\end{tabular}
+
+\label{summary table}
+  \end{table}
+All in all, counterfactual explanations are powerful tools to interpret a particular outcome from AI. The absence of internal details of the model and its resemblance to human logic benefit the lay audience in understanding a decision. What's more, the explanation potentially implies a solution to an undesired outcome. However, the mainstream of counterfactual explanation usually searches an example semantically with a distance function, which often violates the data distribution and results in an uninterpretable outcome similar to an adversarial example. To improve the interpretability and actionability of a counterfactual explanation, including causal models is a promising way. But related researches based on a directed graph can be hardly deployed due to the lack of clear causality connection in real life.    
