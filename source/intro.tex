@@ -1,0 +1,30 @@
+\section{Introduction}
+%先介绍大局观
+Machine learning turns out to outperform the conventional expert systems in automated decisions especially when it handles large-scale, high-dimensional data \cite{XAIBook}. Despite the convenience, the introduction of machine learning into social sensitive domains has raised many concerns about the transparency and fairness of the decision. The reason for such concerns is that once trained, even the designer of the model is not capable to fully interpret it. Obscurity in the decision is not tolerable when the decision could impact humans, for example, credit lending, university approval and medical treatment \cite{CFReview}. Therefore, bringing machine learning into social sensitive domains demands a good explanation of the internal working principle of the model (explainability) or the effect of external feature changes on the model (interpretability) \cite{XAIBook}.
+Researching of these mechanisms is called Explainable Artificial Intelligence (XAI) and is currently a heated topic. XAI helps humans to understand and trust a model.
+
+%CF 在整体中的位置
+In the machine learning family, some models are inherently transparent, others are opaque. Post-hoc (\emph{latin ``after this''}) explanations are used for the opaque models and can be further divided as model-specific or model-agnostic approaches. A model-agnostic approach does not assume the structure of a model, and has four main branches, namely model simplification, feature importance, visualization, and local explanation. Local explanation differs from other explanation methods because they only explain a single example \cite{CFReview}. Local explanations are further categorized into approximation and example-based approaches. Counterfactual explanation (CF) belongs to the latter. Rather than explain the whole model, example-based approaches focus on explaining a particular outcome \cite{CFReview}. A CF is such an example that is close to the original input but with a different prediction label. By looking at which features have been changed, humans could gain a better understanding of a decision.
+
+%两个例子，让读者更好地理解什么是CF
+CFs are common in our daily life. For example, a student may ask himself/herself: ``My university application is denied, but what if my GPA is 0.5 better?'' These ``what-if'' arguments are a (slightly) different world in which a change in action may amend the current outcome. In this article, another two examples are given:
+
+\noindent \textbf{Example 1:} (derived from Adult-Income dataset \cite{AdultIncomeDataset}) Alice has graduated many years but still in her prime. Recently she is not satisfied with her salary and wants to know whether she can increase her salary over \$50,000 by switching her job or improving her education level.
+
+\noindent \textbf{Example 2:} (derived from German-Credit dataset \cite{GermanCreditDataset}) Bob's loan application has been denied, the reason given by the bank is a high credit risk. Bob wants to know what can he do to improve his credit and obtain the loan. Could the solution be an increase in the income, or a lower debt?
+
+% CF的应用场景
+In technical details, a CF explanation usually omits the internal logic that leads to a decision, but rather concentrates on the external factors \cite{watcher2017}. Hence, CF is born for black-box models, the least model access situation that only the prediction function is available. Despite this, many purposed CF methods facilitate the gradients or even complete model internals \cite{CFReview}. CF explanations are mostly applied in classification decisions, and a majority of them are binary classifications \cite{CFandAE}. CFs are mainly used for low-dimensional tabular data, their application for image data is relative rare \cite{CFandAE}.
+
+CFs are useful explanations though they rarely reveal any internal logic. \citeauthor{watcher2017} \cite{watcher2017} has pointed out three aims of an explanation of machine decisions: (a.) to understand the decision, (b.) to obtain guidance for future actions, and (c.) to contest a decision by pointing out model bias. CF explanations satisfy all these demands. Providing that in example 1 a higher education level is suggested, then Alice understands that low education level is the reason for low income, but also knows that improving educational level is the way to the desired salary. For example 2, if a change in the race is suggested, which implies that the decision is made through a discrimination factor, then Bob is expected to contest the unfair decision. The two scenarios described are alternatively named ``feasible CF'' and ``contesting CF'', which will be detailed in \autoref{sec:adversarial}.
+
+The main contributions of the article lie in several aspects:
+\begin{enumerate}
+  \item distinguish contesting CF from feasible CF to further narrow the search space of interesting literature. Though both variants are categorized under the same topic ``counterfactual explanation'', their research aims are different.
+  \item categorize CF generation techniques into nearest methods and causal methods. The former usually generates contesting CF, the latter is able to generate CF examples that are feasible in real life.
+  \item combine ideas in related literature together. Readers obtain an comprehensive overview of the main idea behind counterfactual explanation, instead of a concatenation of multiple short summaries.
+\end{enumerate}
+
+In \autoref{sec:generation}, this article starts introducing the mathematical models of the nearest CF explanation, with a focus on tabular input data. In \autoref{sec:adversarial}, the main drawback of nearest CF explanation is given, and the focus transit to causal CF explanation. Section \ref{sec:Causality} introduces the method to include causality into the model. Section \ref{sec:Conclude} concludes this article.
+
+

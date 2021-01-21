@@ -1,0 +1,27 @@
+, here only an intuitional example is given.
+\paragraph{dpp marginal kernel}
+A DPP samples a subset \emph{A} of a discrete set \textbf{Y} with the following rule:
+\begin{equation}\label{er:dpp}
+  \mathcal{P}(A\subset\textbf{Y})=\det(K_A)
+\end{equation}
+which means the probability of choosing a certain subset equals to the minor of matrix \emph{K}, and \emph{K} is constructed by some relation of all elements in the complete set \textbf{Y}. Considering the simplest case with only two candidates \emph{i,j} in the subset, the possibility is:
+\begin{equation}\label{eq:dpp1}
+\begin{split}
+  \mathcal{P}(i\in\textbf{Y})&=\det(K_{ii})=K_{ii}
+\\
+  \mathcal{P}(i,j\in\textbf{Y})&=\det\begin{pmatrix}
+                                       K_{ii} & K_{ij} \\
+                                       K_{ji} & K_{jj}
+                                     \end{pmatrix}
+                                      \\&=K_{ii}K_{jj}-K_{ij}K_{ji}
+                                      \\&=\mathcal{P}(i\in\textbf{Y})\mathcal{P}(j\in\textbf{Y})-K_{ij}^2
+\end{split}
+\end{equation}
+move a term to the left side we obtain the following equation, on the left side is exactly the definition of covariance:
+\begin{equation}\label{eq:dpp2}
+\begin{split}
+  \mathcal{P}(i,j\in\textbf{Y})-\mathcal{P}(i\in\textbf{Y})\mathcal{P}(j\in\textbf{Y})=-K_{ij}^2
+  \\\equiv Cov(i,j)=-K_{ij}^2
+  \end{split}
+\end{equation}
+therefore, the possibility to choose a subset with two candidates equals the product of their independent possibility (marginal possibility) plus their (negative) covariance. The more relevant two candidates are, the higher $K_{ij}$ value is. When $\mathcal{P}(i),\mathcal{P}(j)$ are constants, a higher $K_{ij}$ value leads to a greater negative value of $\mathcal{P}(i,j)$ (i.e. the determinant of the matrix), which means a lower co-occurring chance. For 3-order matrix and higher, the explanation is no longer so intuitive. 
